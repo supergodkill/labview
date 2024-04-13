@@ -1,0 +1,58 @@
+C51 COMPILER V9.60.0.0   COMTEST                                                           04/14/2024 05:08:11 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE COMTEST
+OBJECT MODULE PLACED IN comtest.OBJ
+COMPILER INVOKED BY: E:\keil\C51\BIN\C51.EXE comtest.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          #include <reg52.h>
+   2          #include <intrins.h>
+   3          unsigned char tmp;
+   4          void send_char(unsigned char txd);
+   5          void main()
+   6          {
+   7   1        TMOD = 0x20;      // 定时器1工作于8位自动重载模式, 用于产生波特率
+   8   1        TH1=TL1=0xFD;       // 波特率9600
+   9   1        SCON = 0x50;      // 设定串行口工作方式1 允许接收,相当于下面三句
+  10   1        //SM0=0;
+  11   1        //SM1=1;
+  12   1        //REN=1;
+  13   1        PCON =0x00;     // 波特率不倍增
+  14   1        TR1 = 1;        // 启动定时器1
+  15   1        while(1)
+  16   1        {
+  17   2        
+  18   2          if(RI==1)           // 是否有数据到来
+  19   2          {
+  20   3            RI = 0;
+  21   3            tmp = SBUF;       // 暂存接收到的数据
+  22   3            P0 = tmp;       // 数据传送到P0口
+  23   3            send_char(tmp);     // 回传接收到的数据
+  24   3          }   
+  25   2        }
+  26   1      }
+  27          void send_char(unsigned char txd)
+  28          // 传送一个字符
+  29          {
+  30   1        SBUF = txd;
+  31   1      //  P0 = txd ;
+  32   1        while(!TI);       // 等特数据传送
+  33   1        TI = 0;         // 清除数据传送标志
+  34   1      }
+  35          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     43    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      1    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,4 +1,4 @@
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    04/14/2024  03:49:53  PAGE 1
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    04/14/2024  15:31:25  PAGE 1
 
 
 BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
@@ -24,16 +24,16 @@ LINK MAP OF MODULE:  .\Objects\数码管动态显示 (MAIN)
 
             * * * * * * *   D A T A   M E M O R Y   * * * * * * *
             REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
-            DATA    0008H     0010H     UNIT         ?DT?MAIN
-            IDATA   0018H     0001H     UNIT         ?STACK
+            DATA    0008H     001AH     UNIT         ?DT?MAIN
+            IDATA   0022H     0001H     UNIT         ?STACK
 
             * * * * * * *   C O D E   M E M O R Y   * * * * * * *
             CODE    0000H     0003H     ABSOLUTE     
             CODE    0003H     008CH     UNIT         ?C_C51STARTUP
-            CODE    008FH     0029H     UNIT         ?PR?MAIN?MAIN
-            CODE    00B8H     0017H     UNIT         ?C_INITSEG
-            CODE    00CFH     0014H     UNIT         ?PR?_DELAYXMS?DELAY
-            CODE    00E3H     000AH     UNIT         ?PR?DELAY1MS?DELAY
+            CODE    008FH     002DH     UNIT         ?PR?MAIN?MAIN
+            CODE    00BCH     0023H     UNIT         ?C_INITSEG
+            CODE    00DFH     0014H     UNIT         ?PR?_DELAYXMS?DELAY
+            CODE    00F3H     000AH     UNIT         ?PR?DELAY1MS?DELAY
 
 
 
@@ -59,7 +59,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\数码管动态显示 (MAIN)
 
   VALUE           TYPE          NAME
   ----------------------------------
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  04/14/2024  03:49:53  PAGE 2
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  04/14/2024  15:31:25  PAGE 2
 
 
 
@@ -68,13 +68,14 @@ SYMBOL TABLE OF MODULE:  .\Objects\数码管动态显示 (MAIN)
   D:0008H         PUBLIC        seg_a_code
   D:0080H         PUBLIC        P0
   D:0090H         PUBLIC        P1
+  D:0012H         PUBLIC        seg_c_code
   D:00A0H         PUBLIC        P2
   D:00B0H         PUBLIC        P3
   D:00A8H         PUBLIC        IE
   D:00B8H         PUBLIC        IP
   C:008FH         PUBLIC        main
-  D:0012H         PUBLIC        count
-  D:0014H         PUBLIC        dig_code
+  D:001CH         PUBLIC        count
+  D:001EH         PUBLIC        dig_code
   D:0098H         PUBLIC        SCON
   D:0088H         PUBLIC        TCON
   D:00C8H         PUBLIC        T2CON
@@ -86,45 +87,45 @@ SYMBOL TABLE OF MODULE:  .\Objects\数码管动态显示 (MAIN)
   C:009AH         LINE#         10
   C:009AH         LINE#         12
   C:00A1H         LINE#         13
-  C:00A4H         LINE#         14
-  C:00ADH         LINE#         16
-  C:00B7H         LINE#         17
+  C:00AAH         LINE#         14
+  C:00B1H         LINE#         16
+  C:00BBH         LINE#         17
   -------         ENDPROC       MAIN
   -------         ENDMOD        MAIN
 
   -------         MODULE        DELAY
   C:0000H         SYMBOL        _ICE_DUMMY_
-  C:00E3H         PUBLIC        Delay1ms
-  C:00CFH         PUBLIC        _delayxms
+  C:00F3H         PUBLIC        Delay1ms
+  C:00DFH         PUBLIC        _delayxms
   -------         PROC          DELAY1MS
   -------         DO            
   D:0007H         SYMBOL        i
   D:0006H         SYMBOL        j
   -------         ENDDO         
-  C:00E3H         LINE#         3
-  C:00E3H         LINE#         4
-  C:00E3H         LINE#         7
-  C:00E4H         LINE#         8
-  C:00E6H         LINE#         9
-  C:00E8H         LINE#         11
-  C:00E8H         LINE#         12
-  C:00EAH         LINE#         13
-  C:00ECH         LINE#         14
+  C:00F3H         LINE#         3
+  C:00F3H         LINE#         4
+  C:00F3H         LINE#         7
+  C:00F4H         LINE#         8
+  C:00F6H         LINE#         9
+  C:00F8H         LINE#         11
+  C:00F8H         LINE#         12
+  C:00FAH         LINE#         13
+  C:00FCH         LINE#         14
   -------         ENDPROC       DELAY1MS
   -------         PROC          _DELAYXMS
   D:0004H         SYMBOL        Xms
-  C:00CFH         LINE#         17
-  C:00D3H         LINE#         18
-  C:00D3H         LINE#         19
-  C:00DDH         LINE#         20
-  C:00DDH         LINE#         21
-  C:00E0H         LINE#         22
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  04/14/2024  03:49:53  PAGE 3
+  C:00DFH         LINE#         17
+  C:00E3H         LINE#         18
+  C:00E3H         LINE#         19
+  C:00EDH         LINE#         20
+  C:00EDH         LINE#         21
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  04/14/2024  15:31:25  PAGE 3
 
 
-  C:00E2H         LINE#         23
+  C:00F0H         LINE#         22
+  C:00F2H         LINE#         23
   -------         ENDPROC       _DELAYXMS
   -------         ENDMOD        DELAY
 
-Program Size: data=25.0 xdata=0 code=237
+Program Size: data=35.0 xdata=0 code=253
 LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

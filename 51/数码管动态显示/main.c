@@ -6,12 +6,12 @@ void main()
 {
 	
 	
-	for(count;count<9;count++)
+	for(count;count<5;count++)
 	{
 		
 		delayxms(10);
-		P2=0x00;
-		P0=~seg_a_code[count];
+		P2=dig_code[count];
+		P0=seg_c_code[count];
 		
 	}
 }

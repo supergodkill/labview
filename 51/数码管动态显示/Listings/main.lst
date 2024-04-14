@@ -1,4 +1,4 @@
-C51 COMPILER V9.60.0.0   MAIN                                                              04/14/2024 03:49:53 PAGE 1   
+C51 COMPILER V9.60.0.0   MAIN                                                              04/14/2024 15:31:25 PAGE 1   
 
 
 C51 COMPILER V9.60.0.0, COMPILATION OF MODULE MAIN
@@ -16,23 +16,23 @@ line level    source
    6          {
    7   1        
    8   1        
-   9   1        for(count;count<9;count++)
+   9   1        for(count;count<5;count++)
   10   1        {
   11   2          
   12   2          delayxms(10);
-  13   2          P2=0x00;
-  14   2          P0=~seg_a_code[count];
+  13   2          P2=dig_code[count];
+  14   2          P0=seg_c_code[count];
   15   2          
   16   2        }
   17   1      }
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =     41    ----
+   CODE SIZE        =     45    ----
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----
-   DATA SIZE        =     16    ----
+   DATA SIZE        =     26    ----
    IDATA SIZE       =   ----    ----
    BIT SIZE         =   ----    ----
 END OF MODULE INFORMATION.
